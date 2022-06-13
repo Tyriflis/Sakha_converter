@@ -2,13 +2,13 @@
 # Just a hobby project for personal use, but great if it can be of use to others.
 # Author: Petter Mæhlum, University of Oslo, 2022.
 
+# Some extra Russian and  Kazakh letters are also added
+# such as ғ,з,ң,қ,ә,ұ,ū
 
-inputt = """Бэнидиэнньиккэ харчыны дуу, наадалаах докумуону дуу сүтэрэн кэбиһэр, кэллиэгэлэргин кытта иирсэр куттал баар. Дьиэҕитигэр да балаһыанньа онтон ордуга суох. Чугас дьонуҥ ньиэрбэҕэр дэлби оонньуур, “сыаналаах сүбэлэри” биэрбитэ буолан кыынньыыр чинчилээхтэр. Нэдиэлэ ортотун ол ылбыт истириэскиттэн босхолонууга аныаҕыҥ. Нэдиэлэ бүтүүтэ иирсээн, кыыһырсыы эмиэ “төннөн” кэлиэхтэрэ. Табыллар күннэр – 12, 13.Үлэҥ боппуруостарыгар ылсарыҥ уолдьаспыт. Нэдиэлэ саҕаланыытыгар дьыалабыай актыыбынаһыҥ барыта үтүө түмүктэниэ. Арай, 12-с чыыһылаҕа үпкэ-харчыга сыһыаннаах тугу да гыныма. Бу – эн табыллыбат күнүҥ. Бу нэдиэлэҕэ саамай табыллар кэмиҥ – өрөбүллэр. Бу кэмҥэ эн тото сынньаныаҥ, күүс-күдэх ылыаҥ, интэриэһинэй көрсүһүүлэргэ сылдьыаҥ.
+# The script has been tested somewhat, but errors or special cases
+# might remain, especially concerning the treatment of loanwords with
+# deviating spelling rules in Sakha. Please contact the author
 
-Табыллар күннэриҥ – 10, 11, 14, 15.Үлэҕэр ситиһии да, кыайтарыы да сиэттиһэ сылдьаллар. Бэнидиэнньиккэ араас инвестиция, саҥа дьыала арыйыытын туһунан толкуйдаабатаҕыҥ да ордук. Ити боппуруостарынан нэдиэлэ ортотугар дьарыктаннаххына – ситиһии аргыстаныаҥ. Нэдиэлэ иккис аҥаарын туохха да долгуйбакка холкутук атаар, туох да сонун син биир суох буолуо.Бэнидиэнньиккэ аһара ыһыллаҕас, дьалбаа-дьалаҕай буолан эрэйи көрүөҥ. Онон, суолталаах докумуону, харчыны сүтэрбэт курдук тэрин-дьаһан. Ол да гыннар, бука, тугу эрэ сүтэрэриҥ буолуо. Санаа баттыгар түспүккүн доҕотторуҥ, чугас дьонуҥ уоскутуохтара, бэттэх аҕалыахтара. Таарыйа, хантан эбии харчы буларгар сыаналаах сүбэлэри биэриэхтэрэ. Өрөбүллэргэ кыайыы эмиэ төннөн кэлиэ. Табыллар күннэрБу нэдиэлэҕэ ыйааһыннар бэйэлэрин эрэ буолбакка, тулалыыр дьоннорун олоҕор эмиэ үтүөнэн дьайыахтара, элбэх дьонноох-сэргэлээх сирдэргэ сылдьан чугас, интэриэһинэй доҕоттору булуохтара. Нэдиэлэ иккис аҥаарыгар өрдөөҕүттэн иитиэхтээбит ыра санааҕыт олоххо киириэн сөп. Өрөбүллэргэ маҕаһыыннарга сылдьан ону-маны атыылас. Ол матайдаабыт харчыҥ уон оччо буолан бэйэҕэр төннүөҕэ. Табыллар күннэр – 9, 12, 13."""
-
-
-# Some extra Russian and  Kazakh letters are also addedғзңқәұū
 mapping = {'а':'a','А':'A',
             'б':'b','Б':'B',
             'в':'v','В':'V',
@@ -41,7 +41,7 @@ mapping = {'а':'a','А':'A',
             'ө':'ö','Ө':'Ö',
             'ш':'sh','Ш':'Sh',
             'ю':'yu','Ю':'Yu',
-            'ж':'zh','Ж':'Zh',
+            'ж':'j','Ж':'J',
             'ғ':'ğ','Ғ':'Ğ',
             'з':'z','З':'Z',
             'ң':'ŋ','Ң':'Ŋ',
@@ -50,48 +50,53 @@ mapping = {'а':'a','А':'A',
             'ұ':'ū','Ұ':'Ū',
             'ь':'y'}
 
-
-print("".upper())
-
-sin = list(set(inputt))
-sin.sort()
-print(sin)
-
 def convert(text):
-    newstreng = ""
-    titerator = iter(text)
-    current = next(titerator,"")
+    # Converts a string (text) to Turkish
+    # ortography.
+    new_string = ""
+    text_iterator = iter(text)
+    current = next(text_iterator,"")
     previous = ""
     while current:
         if current == "д":
-            current = next(titerator,"")
+            current = next(text_iterator,"")
             if current == "ь":
-                    newstreng += "c"
+                    new_string += "c"
             else:
-                newstreng += "d"
+                new_string += "d"
                 if current in mapping:
-                    newstreng += mapping[current]
+                    new_string += mapping[current]
                 else:
-                    newstreng += current
+                    new_string += current
         elif current == "н":
-            current = next(titerator,"")
+            current = next(text_iterator,"")
             if current == "ь":
-                    newstreng += "ɲ"
+                    new_string += "ñ"
             else:
-                newstreng += "n"
+                new_string += "n"
                 if current in mapping:
-                    newstreng += mapping[current]
+                    new_string += mapping[current]
                 else:
-                    newstreng += current
+                    new_string += current
         elif current in mapping:
-            newstreng += mapping[current]
+            new_string += mapping[current]
         else:
-            #print(current,"CODE: {}".format(ord(current)), " is not in mapping")
-            newstreng += current
-        current = next(titerator,"")
-    return newstreng
-        
-for sent in inputt.split("."):
-    print(sent)
-    print(convert(sent))
-    print()
+            # If this is reached, there is something missing.
+            new_string += current
+        current = next(text_iterator,"")
+    return new_string
+
+
+if __name__ == "__main__":        
+    # A small test, taken from the newspaper kyym.ru . 
+
+    input_text = """Бэнидиэнньиккэ харчыны дуу, наадалаах докумуону дуу сүтэрэн кэбиһэр, кэллиэгэлэргин кытта иирсэр куттал баар. Дьиэҕитигэр да балаһыанньа онтон ордуга суох. Чугас дьонуҥ ньиэрбэҕэр дэлби оонньуур, “сыаналаах сүбэлэри” биэрбитэ буолан кыынньыыр чинчилээхтэр. Нэдиэлэ ортотун ол ылбыт истириэскиттэн босхолонууга аныаҕыҥ."""
+
+
+    for sent in input_text.split("."):
+        print(sent)
+        print(convert(sent))
+        print()
+
+
+
