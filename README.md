@@ -9,8 +9,8 @@ Some examples:
 
 
 күүппүтэ баарай -> küüppüte baaray  
-сыллаахха -> sıllaaxxa
-дьону -> conu
+сыллаахха -> sıllaaxxa  
+дьону -> conu  
 
 
 You can test the converter here:
