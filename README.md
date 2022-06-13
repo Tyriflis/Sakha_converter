@@ -7,10 +7,10 @@ Note that this ortography, although in use, is not necessarily used in any offic
 Some examples from Kıım (Kyym):
 
 
- Нэдиэлэ иккис аҥаарыгар өрдөөҕүттэн иитиэхтээбит ыра санааҕыт олоххо киириэн сөп
+ Нэдиэлэ иккис аҥаарыгар өрдөөҕүттэн иитиэхтээбит ыра санааҕыт олоххо киириэн сөп  
  Nediele ikkis aŋaarıgar ördööğütten iitiexteebit ıra sanaağıt oloxxo kiirien söp
 
-Ол матайдаабыт харчыҥ уон оччо буолан бэйэҕэр төннүөҕэ
+Ол матайдаабыт харчыҥ уон оччо буолан бэйэҕэр төннүөҕэ  
 Ol mataydaabıt xarçıŋ uon oçço buolan beyeğer tönnüöğe
 
 You can test the converter here:
