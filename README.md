@@ -2,9 +2,9 @@
 
 This converter is a simple rule-based converter from cyrillic Sakha to a Turkish-like ortography.
 
-Note that this ortography, although in use, is not necessarily used in any official publications. 
+Note that this ortography, although in use by some, is not necessarily used in any official publications. 
 
-Some examples from Kıım (Kyym):
+Some examples from the newspaper Kıım (Kyym.ru):
 
 
  Нэдиэлэ иккис аҥаарыгар өрдөөҕүттэн иитиэхтээбит ыра санааҕыт олоххо киириэн сөп  
@@ -19,7 +19,7 @@ You can test the converter here:
 http://tyriflis.pythonanywhere.com/sakha1
 
 
-Please link to this Github page on using the tool.
+If you use the tool, please link to this GitHub-repository.
 
 
 
